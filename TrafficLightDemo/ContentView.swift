@@ -2,6 +2,13 @@ import SwiftUI
 
 struct ContentView: View {
 
+    private enum Position: String {
+        case north = "N"
+        case south = "S"
+        case east = "E"
+        case west = "W"
+    }
+
     // MARK: – Vehicle signal
 
     private enum VehicleLight {
@@ -98,25 +105,33 @@ struct ContentView: View {
 
                 intersectionView
 
-                HStack(spacing: 12) {
+                HStack {
                     Button("Next Phase") {
                         advancePhase()
                     }
                     .buttonStyle(.borderedProminent)
                     .tint(.white)
                     .foregroundStyle(.black)
-
-                    Toggle("Auto", isOn: $isAutoModeOn)
-                        .toggleStyle(.switch)
-                        .foregroundStyle(.white)
-                        .onChange(of: isAutoModeOn) { enabled in
-                            if enabled {
-                                runAutoCycle()
-                            } else {
-                                cycleTask?.cancel()
-                                cycleTask = nil
+                    .disabled(isAutoModeOn)
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 2) {
+                        Text("Auto")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundStyle(.white)
+                        
+                        Toggle("", isOn: $isAutoModeOn)
+                            .toggleStyle(.switch)
+                            .onChange(of: isAutoModeOn) { enabled in
+                                if enabled {
+                                    runAutoCycle()
+                                } else {
+                                    cycleTask?.cancel()
+                                    cycleTask = nil
+                                }
                             }
-                        }
+                    }
                 }
                 .padding(.horizontal)
             }
@@ -194,13 +209,13 @@ struct ContentView: View {
                 // They need NS cars to be RED → nsPedWalk (true during ewGreen).
                 VStack {
                     signalPole(
-                        direction: "N",
+                        position: .north,
                         vehicle: activePhase.northSouthLight,
                         pedWalk: activePhase.nsPedWalk
                     )
                     Spacer()
                     signalPole(
-                        direction: "S",
+                        position: .south,
                         vehicle: activePhase.northSouthLight,
                         pedWalk: activePhase.nsPedWalk
                     )
@@ -211,13 +226,13 @@ struct ContentView: View {
                 // They need EW cars to be RED → ewPedWalk (true during nsGreen).
                 HStack {
                     signalPole(
-                        direction: "W",
+                        position: .west,
                         vehicle: activePhase.eastWestLight,
                         pedWalk: activePhase.ewPedWalk
                     )
                     Spacer()
                     signalPole(
-                        direction: "E",
+                        position: .east,
                         vehicle: activePhase.eastWestLight,
                         pedWalk: activePhase.ewPedWalk
                     )
@@ -271,12 +286,12 @@ struct ContentView: View {
     // MARK: – Signal pole: vehicle head + pedestrian head side by side
 
     private func signalPole(
-        direction: String,
+        position: Position,
         vehicle: VehicleLight,
         pedWalk: Bool
     ) -> some View {
         VStack(spacing: 4) {
-            Text(direction)
+            Text(position.rawValue)
                 .font(.system(size: 11, weight: .bold, design: .rounded))
                 .foregroundStyle(.white.opacity(0.65))
 

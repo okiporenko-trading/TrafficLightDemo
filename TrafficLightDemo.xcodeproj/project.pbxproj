@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		6017C604495AA1327871609D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68447E48AD9B967D25C4E10C /* ContentView.swift */; };
 		99E5E86D7C814DEFF42C4624 /* TrafficLightDemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8BA7BB364BBB907C73ED40 /* TrafficLightDemoApp.swift */; };
+		9E18334D4482BE1C218817F1 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC431A53073CE0941A91530 /* SplashScreenView.swift */; };
+		FC02CA208BF7124A6B7E9F0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E9A9A474CEBCADF1DEDAA89 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		36877BE6DCBC509159755A7A /* TrafficLightDemo.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = TrafficLightDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E9A9A474CEBCADF1DEDAA89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68447E48AD9B967D25C4E10C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CFC431A53073CE0941A91530 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		FE8BA7BB364BBB907C73ED40 /* TrafficLightDemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLightDemoApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -29,7 +33,9 @@
 		582BA10A2E372BAD73D205A6 /* TrafficLightDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4E9A9A474CEBCADF1DEDAA89 /* Assets.xcassets */,
 				68447E48AD9B967D25C4E10C /* ContentView.swift */,
+				CFC431A53073CE0941A91530 /* SplashScreenView.swift */,
 				FE8BA7BB364BBB907C73ED40 /* TrafficLightDemoApp.swift */,
 			);
 			path = TrafficLightDemo;
@@ -51,6 +57,7 @@
 			buildConfigurationList = 9124D159D5D146F009C9FE98 /* Build configuration list for PBXNativeTarget "TrafficLightDemo" */;
 			buildPhases = (
 				7AA533202E0A037E1F84B6BA /* Sources */,
+				41F7B17F3B65C324753BE78F /* Resources */,
 			);
 			buildRules = (
 			);
@@ -72,6 +79,10 @@
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					04AC16C1B869CE4373B51A83 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = E6D6D00CA5EE48FEADD1B263 /* Build configuration list for PBXProject "TrafficLightDemo" */;
@@ -93,12 +104,24 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		41F7B17F3B65C324753BE78F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FC02CA208BF7124A6B7E9F0E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7AA533202E0A037E1F84B6BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6017C604495AA1327871609D /* ContentView.swift in Sources */,
+				9E18334D4482BE1C218817F1 /* SplashScreenView.swift in Sources */,
 				99E5E86D7C814DEFF42C4624 /* TrafficLightDemoApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -229,7 +252,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -251,7 +276,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
